@@ -4,6 +4,10 @@
 
 	function sendRequest(){
 		event.preventDefault();
+		var text=document.getElementById("character").value;
+		if(text==''){
+			alert("Please fill up input field");
+        		}
 		var characters={}	
 		characters.text=document.getElementById('character').value;
 		request("/frequency/texts/list/get", JSON.stringify(characters));
@@ -33,11 +37,18 @@
 
 
 	function sendRequest1(){
-		event.preventDefault();
+		event.preventDefault();	
+		var text=document.getElementById("character").value;
+		if(text==''){
+			alert("Please fill up input field");
+        		}
 		var character={}
 		character.words=document.getElementById('character').value;
 		requests("/frequency/texts/count/counting", JSON.stringify(character));
-		}
+		
+		
+		
+	    }
 
 		function requests(url, character){
 			var xhr = new XMLHttpRequest();
@@ -56,4 +67,5 @@
 			xhr.send(character);
 			document.getElementById("table").innerHTML = "Waiting for response ...";
 		}
+		
 
